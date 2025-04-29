@@ -1,0 +1,78 @@
+### Registrar un nuevo usuario
+POST http://localhost:4000/api/users
+Content-Type: application/json
+
+{
+  "name": "Prueba Swagger",
+  "email": "prueba@example.com",
+  "password": "123456",
+  "role": "client"
+}
+
+###
+
+### Login de usuario
+POST http://localhost:4000/api/users/login
+Content-Type: application/json
+
+{
+  "email": "prueba@example.com",
+  "password": "123456"
+}
+
+###
+
+### Obtener perfil de usuario autenticado
+GET http://localhost:4000/api/users/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MTAzOWE0YzFjNTdlNzBmODU0MmVjMCIsInJvbGUiOiJjbGllbnQiLCJpYXQiOjE3NDU4OTM4NDAsImV4cCI6MTc0NTk4MDI0MH0.cRWsfqH5G_rcP7rfxmym-0wODbgiUqjRnaHyJ724uOo
+Content-Type: application/json
+
+###
+
+### Crear un producto (admin)
+POST http://localhost:4000/api/products
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MTAwY2U2YWQxMWQ2ODQ1OGRkMzQ3YyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0NTg5Mzg5NywiZXhwIjoxNzQ1OTgwMjk3fQ.yx1t-SbVPoTJBDsxICeqFAj09jGd-sno_BEZa551Xtg
+Content-Type: application/json
+
+{
+  "name": "Producto de prueba",
+  "description": "Descripción del producto",
+  "price": 150,
+  "image": "producto.jpg"
+}
+
+
+### Ver todos los productos
+GET http://localhost:4000/api/products
+Content-Type: application/json
+
+###
+
+### Crear una orden de compra
+POST http://localhost:4000/api/orders
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MTAzOWE0YzFjNTdlNzBmODU0MmVjMCIsInJvbGUiOiJjbGllbnQiLCJpYXQiOjE3NDU4OTM4NDAsImV4cCI6MTc0NTk4MDI0MH0.cRWsfqH5G_rcP7rfxmym-0wODbgiUqjRnaHyJ724uOo
+Content-Type: application/json
+
+{
+  "products": [
+    {
+      "productId": "68101f6731c10891be97b7e9",
+      "quantity": 2
+    }
+  ],
+  "total": 300
+}
+
+###
+
+### Ver mis órdenes
+GET http://localhost:4000/api/orders/myorders
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MTAzOWE0YzFjNTdlNzBmODU0MmVjMCIsInJvbGUiOiJjbGllbnQiLCJpYXQiOjE3NDU4OTM4NDAsImV4cCI6MTc0NTk4MDI0MH0.cRWsfqH5G_rcP7rfxmym-0wODbgiUqjRnaHyJ724uOo
+Content-Type: application/json
+
+###
+
+### Ver todas las órdenes (admin)
+GET http://localhost:4000/api/orders
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4MTAwY2U2YWQxMWQ2ODQ1OGRkMzQ3YyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc0NTg5Mzg5NywiZXhwIjoxNzQ1OTgwMjk3fQ.yx1t-SbVPoTJBDsxICeqFAj09jGd-sno_BEZa551Xtg
+Content-Type: application/json
